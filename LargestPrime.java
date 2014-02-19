@@ -2,6 +2,16 @@
 * Class Name: LargestPrime	Programmer: Nadya Pena
 * Decay a number into its prime factors and find the largest
 *
+* Variables:
+*	1) scan: Scanner object that scans the inputted number
+*	2) number: The String representation of the inputted number
+*	3) numbers[]: int array
+*	4) sum_of_numbers: int that represents the sum of the digits in the inputted number
+*	5) x: integer used for looping 
+*	6) divisibility_indicator: int that tells whether a prime factor has been found
+*
+*
+*
 */
 import java.util.Scanner;
 import java.io.*;
@@ -22,8 +32,6 @@ public class LargestPrime{
 			* get the number of digits in the number entered by the user
 			*/
 			int length= number.length();
-			//System.out.println("The number of digits in the number is: " + length);
-
 
 			/*
 			*create int array to hold all of the digits
@@ -45,14 +53,14 @@ public class LargestPrime{
 			/*
 			* Check divisibility by two - see if the last digit is even
 			*/
-			if((numbers[length-1])%2 ==0){
+			int factor=numbers[length-1]%2;
+			if(factor==0){
 				System.out.println("This number is a multiple of 2");
-				divisibility_indicator = 1;
+				divisibility_indicator++;
 			}else{
 				System.out.println("This number is NOT a multiple of 2");
-				divisibility_indicator = 0;
+				//divisibility_indicator = 0;
 			}
-
 			/*
 			* Check divisibility by 3 - check if the sum of all digits is multiple of 3
 			*/
@@ -61,9 +69,8 @@ public class LargestPrime{
 				divisibility_indicator++;
 			}else{
 				System.out.println("This number is NOT a multiple of 3");
-				divisibility_indicator = 0;
+				//divisibility_indicator = 0;
 			}
-
 			/*
 			* Check divisibility by 7 - try division, no other rules apply
 			* Note: number is read as a String, integer conversion must happen 
@@ -74,12 +81,14 @@ public class LargestPrime{
 				divisibility_indicator++;
 			}else{
 				System.out.println("This number is NOT a multiple of 7");
-				divisibility_indicator = 0;
+				//divisibility_indicator = 0;
 			}
 
 			/*If all the checks fail, brute force it by checking divisibility from (11,sqrt(n)]*/	
-				
-			System.out.println("This number has " + divisibility_indicator + " prime factors");
+			 if(divisibility_indicator==0){
+
+			 }
+			System.out.println("This number has " + divisibility_indicator + " prime factors"); // only for [2,10]
 
 		}catch(Exception e){
 			System.out.println("Error");
