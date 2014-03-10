@@ -14,6 +14,6 @@ Instructions:
 
 2) Run it and it will prompt you to enter a number
 
-3) Enter a number and it should start factoring until it finds the prime factors
+3) Enter a number and it should start factoring until it finds the largest prime factors
 
 ... an out-of-class activity... still in progress because school.
