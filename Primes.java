@@ -20,25 +20,26 @@ public class Primes{
 	public static void main(String[] args){
 
 		/*
+	  	* Read the number input by user
+	  	*/ 
+	  	System.out.println("Please enter the number you would like to factor");
+		/*
 		* Variable declarations and Primes object creation
 		*/			
 		Scanner scan= new Scanner(System.in);
 		long in_number= scan.nextLong();
 		long max_number = in_number/2;
-		boolean isfactor = true;
 	  	Primes prime = new Primes();
-	  	/*
-	  	* Read the number input by user
-	  	*/ 
-	  	System.out.println("Please enter the number you would like to factor");
 
 	  	/*
 	  	* Loop through the possible factors in decreasing order (largest to smallest)
 	  	*/
 	  	for(long i = max_number; i >= 2; i--){
 
-	  	 prime.isFactor(in_number, max_number);
-	  	}
+	 		if(prime.isFactor(in_number, i)){
+	 			System.out.println(i + " is a factor of " + in_number);
+	 		} 
+		}
 	}
 	/*
 	* Empty Constructor
@@ -47,14 +48,11 @@ public class Primes{
  	/*
 	* Function that returns a boolean indicating whether the number is a factor of the inputted number or not
  	*/
- 	public boolean isFactor(long in_number,long max_number){
- 		if(in_number % max_number == 0){
- 			System.out.println("FLUFF");
- 			System.out.println(max_number + " is a factor of " + in_number);
- 		}
- 		return true;
+ 	protected boolean isFactor(long in_number, long n){
+	 	return in_number % n == 0;
  	}
  	/* 
-	* Function that returns a number if it is a prime factor of the inputted number
+	* Function that checks if a factor is a prime factor 
  	*/
+ 	
 }
