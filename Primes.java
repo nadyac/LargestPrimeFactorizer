@@ -6,10 +6,6 @@
 * Class Name: LargestPrime	Programmer: Nadya Pena
 * Decay a number into its prime factors and find the largest
 *
-* Variables:
-*	1) scan: Scanner object that scans the inputted number
-*
-*
 *
 */
 import java.util.Scanner;
@@ -37,7 +33,11 @@ public class Primes{
 	  	for(long i = max_number; i >= 2; i--){
 
 	 		if(prime.isFactor(in_number, i)){
-	 			System.out.println(i + " is a factor of " + in_number);
+	 			//System.out.println(i + " is a factor of " + in_number);
+
+	 			if(prime.isPrime(i)){
+	 				System.out.println(i + " IS A PRIME FACTOR");
+	 			}
 	 		} 
 		}
 	}
@@ -48,11 +48,27 @@ public class Primes{
  	/*
 	* Function that returns a boolean indicating whether the number is a factor of the inputted number or not
  	*/
- 	protected boolean isFactor(long in_number, long n){
-	 	return in_number % n == 0;
+ 	protected boolean isFactor(long in_number, long i){
+	 	return in_number % i == 0;
  	}
  	/* 
-	* Function that checks if a factor is a prime factor 
+	* Function that checks if a factor is a prime factor by seeing if the factor
+	* is divisible by any number other than itself and one, starting at factor/2
  	*/
- 	
+	protected boolean isPrime(long x){
+
+		int prime_indicator = 0;
+		boolean final_indicator = false;
+
+		for (long n = (x/2); n >=2; n--){
+			if(x % n == 0){
+				prime_indicator++;
+			} 
+		}
+		if(prime_indicator != 0){
+			final_indicator = false;
+		} else {final_indicator = true;}
+
+	return final_indicator;
+	}
 }
