@@ -26,7 +26,6 @@ public class Primes{
 		long in_number= scan.nextLong();
 		long max_number = in_number/2;
 	  	Primes prime = new Primes();
-
 	  	/*
 	  	* Loop through the possible factors in decreasing order (largest to smallest)
 	  	*/
@@ -58,9 +57,10 @@ public class Primes{
 	protected boolean isPrime(long x){
 
 		int prime_indicator = 0;
+		long n = x/2;
 		boolean final_indicator = false;
 
-		for (long n = (x/2); n >=2; n--){
+		for (; n >=2; n--){
 			if(x % n == 0){
 				prime_indicator++;
 			} 
